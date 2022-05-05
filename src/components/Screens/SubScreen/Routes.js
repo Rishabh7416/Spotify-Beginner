@@ -58,7 +58,7 @@ export function BottomTabs(){
         <Tab.Screen name="Home" component={ProfileRoute}
           options = {{tabBarIcon: ({focused}) => (
           <Image
-            style = {{height: 28, width: 28}}
+            style = {{height: 24, width: 24}}
             source = {focused?
               require('../../../assets/homeActiveIcon.png'):
               require('../../../assets/homepageButtonActive.png')
@@ -68,23 +68,32 @@ export function BottomTabs(){
         <Tab.Screen name="Search" component={SearchScreen}
           options = {{tabBarIcon: ({focused}) => (
           <Image
-            style = {{height: 25 , width: 25}}
-            source = {require('../../../assets/searchInactiveIcon.png')}/>
+            style = {{height: 23 , width: 23}}
+            source = {focused?
+              require('../../../assets/searchInactiveIcon.png'):
+              require('../../../assets/searchInactiveIcon.png')
+            }/>
         )}}
         />
         <Tab.Screen name="Your Library" component={LibraryScreen}
           options = {{tabBarIcon: ({focused}) => (
           <Image
-            style = {{height: 28, width: 28}}
-            source = {require('../../../assets/libraryIcon.png')}
+            style = {{height: 24 , width: 24}}
+            source = {focused?
+              require('../../../assets/libraryIcon.png'):
+              require('../../../assets/libraryIcon.png')
+            }
           />
         )}}
         />
         <Tab.Screen name="Premium" component={PremiumScreen}
           options = {{tabBarIcon: ({focused}) => (
           <Image
-            style = {{height: 28, width: 28}}
-            source = {require('../../../assets/spotifyTabIcon.png')}
+            style = {{height: 24, width: 24}}
+            source = {focused?
+              require('../../../assets/spotifyTabIcon.png'):
+              require('../../../assets/spotifyTabIcon.png')
+            }
           />
         )}}
         />

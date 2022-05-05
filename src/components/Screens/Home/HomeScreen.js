@@ -11,7 +11,7 @@ import {
   Alert,
 } from 'react-native';
 // import NotificationScreen from '../NotifIcations/NotificationScreen';
-import {Container, Container1, Container2, Container3} from '../SubScreen/Container';
+import { Container, Container1, Container2, Container3 } from '../SubScreen/Container';
 import { Dimensions } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {Modal} from 'react-native';
@@ -97,7 +97,10 @@ const HomeScreen = ({navigation}) => {
             <Text style = {{color: 'white', fontSize: 20, fontWeight: '600', letterSpacing: 0.5}}>Eren</Text>
             <Text style = {{color: 'grey', fontSize: 12, fontWeight: '500'}}>View Profile</Text>
           </View>
-          <Image source = {require('../../../assets/backBtn.png')} style = {{height: 15, width: 15, position: 'absolute', right: 0}}/>
+          <Image
+            source = {require('../../../assets/backBtn.png')}
+            style = {{height: 15, width: 15, position: 'absolute', right: 0}}
+          />
         </TouchableOpacity>
       </View>
     )
@@ -143,13 +146,16 @@ const HomeScreen = ({navigation}) => {
                   source={require('../../../assets/notificationBell.png')}
                 />
               </TouchableOpacity>
-              <TouchableOpacity onPress = {() => {}} style={{height:30, width:30, alignItems:'center'}}>
-                  <Image
+              <TouchableOpacity onPress = {() => {}} style={{height:22, width:22, alignItems:'center'}}>
+                <Image
                   style={styles.image_container}
-                  source={require('../../../assets/clock.png')}
+                  source={require('../../../assets/time.png')}
                 />
               </TouchableOpacity>
-              <TouchableOpacity onPress = {() => {setVisibleModal(!visiblemodal)}} style={{height:30, width:30, alignItems:'center'}}>
+              <TouchableOpacity
+                onPress = {() => {setVisibleModal(!visiblemodal)}}
+                style={{height:24, width:24, alignItems:'center'}}
+              >
                   <Image
                   style={styles.image_container}
                   source={require('../../../assets/settings.png')}
@@ -302,7 +308,8 @@ const styles = StyleSheet.create({
     position:'absolute',
     right: 0,
     justifyContent: 'space-between',
-    width: '30%'
+    width: '33%',
+    alignItems: 'center'
   },
 
   modalheaderContainer: {

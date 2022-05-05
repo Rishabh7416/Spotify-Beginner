@@ -25,7 +25,7 @@ const SearchScreen = ({img}) => {
       return res.json();
     })
     .then((response) => {
-      setState(response.slice(0, 4));
+      setState(response.slice(0, 12));
     })
     .catch((error) => {
       console.log("error in console", error)
@@ -44,6 +44,22 @@ const SearchScreen = ({img}) => {
   const itemSeparator = () => {
     return(
       <View style = {{margin: '1%'}}/>
+    )
+  }
+
+  const listHeaderComponent = () => {
+    return(
+      <View>
+        <Text style = {{color: 'white', fontWeight: 'bold', marginVertical: 12}}>Your top genres</Text>
+      </View>
+    )
+  }
+
+  const listHeaderComponent1 = () => {
+    return(
+      <View>
+        <Text style = {{color: 'white', fontWeight: 'bold'}}>Browse all</Text>
+      </View>
     )
   }
 
@@ -66,25 +82,25 @@ const SearchScreen = ({img}) => {
             placeholderTextColor='black'
             style = {styles.textinput_container}
           />
-        <Text style = {{color: 'white', fontWeight: 'bold', marginVertical: '4%'}}>Your top genres</Text>
         </View>
           <FlatList
-            contentContainerStyle = {{alignItems: 'center',}}
+            contentContainerStyle = {{alignItems: 'center'}}
             ref = {refer}
             data = {state}
-            renderItem = {(item) => {return renderItem(item)}}
+            ListHeaderComponent = {listHeaderComponent}
+            renderItem = {renderItem}
             keyExtractor = {(item) => item.id}
             numColumns = {2}
           />
-          <Text style = {{color: 'white', fontWeight: 'bold'}}>Rishabh</Text>
-          <FlatList
+          {/* <FlatList
             contentContainerStyle = {{alignItems: 'center',}}
             ref = {refer}
             data = {state}
+            ListHeaderComponent = {listHeaderComponent1}
             renderItem = {(item) => {return renderItem(item)}}
             keyExtractor = {(item) => item.id}
             numColumns = {2}
-          />
+          /> */}
       </View>
     </SafeAreaView>
   );
@@ -154,7 +170,7 @@ const styles = StyleSheet.create({
 
   flatlist_image:{
     marginHorizontal:10,
-    marginVertical:10,
+    // marginVertical:10,
     width:172,
     height:110,
     resizeMode:'center',

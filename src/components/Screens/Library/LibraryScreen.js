@@ -13,7 +13,7 @@ import {
 import {Modal} from 'react-native';
 import {Data, imageDataContainer, imageDataContainer1} from '../../Data/data';
 
-const LibraryScreen = ({img}) => {
+const LibraryScreen = ({navigation}) => {
 
   const [data, setData] = useState([]);
   const [modalsVisible, setModalsVisible] = useState(false);
@@ -29,17 +29,17 @@ const LibraryScreen = ({img}) => {
 
   const renderItem = ({item}) => {
     return(
-      <View style = {{flexDirection: 'row', alignItems: 'center'}}>
-        <TouchableOpacity>
+      <View>
+        <TouchableOpacity onPress={() => navigation.navigate("Player")} style = {{flexDirection: 'row', alignItems: 'center'}}>
             <Image
               style = {{height: 60, width: 60}}
               source = {{uri: item.imageDataContainer}}
             />
-          </TouchableOpacity>
-          <View>
-            <Text style = {{color: 'white', marginLeft: 18, fontWeight: '500'}}>{item.name}</Text>
-            <Text style = {{color: 'grey', marginLeft: 18, fontWeight: '500', fontSize: 10}}>{item.name}</Text>
+            <View>
+              <Text style = {{color: 'white', marginLeft: 18, fontWeight: '500'}}>{item.name}</Text>
+              <Text style = {{color: 'grey', marginLeft: 18, fontWeight: '500', fontSize: 10}}>{item.name}</Text>
           </View>
+          </TouchableOpacity>
       </View>
     )
   }
@@ -144,7 +144,8 @@ const styles = StyleSheet.create({
 
   first_container:{
     padding: 10,
-    backgroundColor: 'black'
+    backgroundColor: 'black',
+    flex: 1,
   },
 
   imageContainerStyle: {
