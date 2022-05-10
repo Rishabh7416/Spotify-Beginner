@@ -23,6 +23,7 @@ import TrackPlayer, {
 } from 'react-native-track-player';
 import Slider from '@react-native-community/slider';
 import AnimeSongsList from './StoreOfSongsApiCalls';
+import { useDispatch, useSelector } from 'react-redux';
 
 const { width, height } = Dimensions.get('window');
 
@@ -50,6 +51,8 @@ export default function Player(){
   const ScrollingReference = useRef(new Animated.Value(0)).current;
   const ScrollingReferenceED = useRef(null);
   const [likeAnimation, setLikeAnimation] = useState(false);
+  const {DATA,name}= useSelector(Store => Store.PlayerReducer)
+  const dispatch = useDispatch();
 
   const renderItem = ({index, item}) => {
     return(
